@@ -1,16 +1,13 @@
-function(con, a) //script:#s.user.script, param:{nav|action etc.:"blogs|post etc."}, filter:"projects or usernames"
+function(c, a) //script:#s.user.script, p:{nav|action etc.:"blogs|post etc."}, f:"projects or usernames"
 {
-	var c = con.caller;
-	var l = #fs.scripts.lib();
-
 	var pX = /((project ).+(has|come))|((review of)\ .*?,{1})|((for)\ .*?\ (since))|((continues on)\ .*?\ )/g; //project regex
 	var uX = /.*?\ (of project)\ |(--)\ .*?\ (when)/g; //user regex
 
 	let m = ""; //matches
 	let s = "";
 	let pm = ""; //prematch
-	let r = a.script.call(a.param);
-	if(a.filter == "projects")
+	let r = a.s.call(a.p);
+	if(a.f == "projects")
 	{
 		while((s=pX.exec(r)) != null)
 		{
@@ -45,4 +42,3 @@ function(con, a) //script:#s.user.script, param:{nav|action etc.:"blogs|post etc
 
 	return {ok:true, msg:m};
 }
-
