@@ -3,8 +3,8 @@ function(con, a) //script:#s.user.script, param:{nav|action etc.:"blogs|post etc
 	var c = con.caller;
 	var l = #fs.scripts.lib();
 
-	var pX = /.+\ (project|of|for|on)\ .+\ /g; //project regex
-	var uX = /\w.+\ (of)|(--)\ .+\ (when)/g; //user regex
+	var pX = /((project ).+(has|come))|((review of)\ .*?,{1})|((for)\ .*?\ (since))|((continues on)\ .*?\ )/g; //project regex
+	var uX = /.*?\ (of project)\ |(--)\ .*?\ (when)/g; //user regex
 
 	let m = ""; //matches
 	let s = "";
